@@ -8,10 +8,10 @@ import java.util.*
 
 data class TransactionOutput(val toAddress: PublicKey,
                              val amount: Int,
-                             val merkle_root: String,
+                             val transactionHash: String,
                              var hash: String = "") {
     init {
-        hash = "${toAddress.encodeToString()}$amount$merkle_root".hash()
+        hash = "${toAddress.encodeToString()}$amount$transactionHash".hash()
     }
 
     fun isMine(me: PublicKey) : Boolean {
